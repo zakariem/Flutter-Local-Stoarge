@@ -1,46 +1,21 @@
 import 'package:flutter/material.dart';
-import 'shared_preferences_service.dart';
-import 'secure.dart';
+import 'package:shared_pref/pages/home_page.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  bool isDarkMode = await SharedPreferencesService.getIsDarkMode();
-
-  runApp(MyApp(isDarkMode: isDarkMode));
+void main() {
+  runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  final bool isDarkMode;
-
-  const MyApp({super.key, required this.isDarkMode});
-
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  late bool isDarkMode;
-
-  @override
-  void initState() {
-    super.initState();
-    isDarkMode = widget.isDarkMode;
-  }
-
-  void _toggleTheme() async {
-    setState(() {
-      isDarkMode = !isDarkMode;
-    });
-    await SharedPreferencesService.setIsDarkMode(isDarkMode);
-  }
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
+      title: 'Flutter Storage Example',
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
-      home: Secure(toggleTheme: _toggleTheme),
+      themeMode: ThemeMode.system,
+      home: const HomePage(),
     );
   }
 }
