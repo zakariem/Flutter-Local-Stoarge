@@ -5,10 +5,10 @@ class SecureStoragePage extends StatefulWidget {
   const SecureStoragePage({super.key});
 
   @override
-  _SecureStoragePageState createState() => _SecureStoragePageState();
+  SecureStoragePageState createState() => SecureStoragePageState();
 }
 
-class _SecureStoragePageState extends State<SecureStoragePage> {
+class SecureStoragePageState extends State<SecureStoragePage> {
   String storedValue = '';
 
   Future<void> _saveSecureData() async {

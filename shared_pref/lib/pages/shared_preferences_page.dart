@@ -5,10 +5,10 @@ class SharedPreferencesPage extends StatefulWidget {
   const SharedPreferencesPage({super.key});
 
   @override
-  _SharedPreferencesPageState createState() => _SharedPreferencesPageState();
+  SharedPreferencesPageState createState() => SharedPreferencesPageState();
 }
 
-class _SharedPreferencesPageState extends State<SharedPreferencesPage> {
+class SharedPreferencesPageState extends State<SharedPreferencesPage> {
   int storedInt = 0;
   double storedDouble = 0.0;
   bool storedBool = false;
