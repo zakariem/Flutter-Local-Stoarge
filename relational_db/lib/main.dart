@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: TodoListScreen(),
     );
   }
@@ -23,10 +24,10 @@ class TodoListScreen extends StatefulWidget {
   const TodoListScreen({super.key});
 
   @override
-  _TodoListScreenState createState() => _TodoListScreenState();
+  TodoListScreenState createState() => TodoListScreenState();
 }
 
-class _TodoListScreenState extends State<TodoListScreen> {
+class TodoListScreenState extends State<TodoListScreen> {
   List<Todo> todos = [];
   final _dbHelper = DatabaseHelper.instance;
   final _titleController = TextEditingController();
